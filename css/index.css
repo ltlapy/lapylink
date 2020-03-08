@@ -29,6 +29,7 @@ body > div.main {
              -20px -20px 60px #d7d7d7;
 }
 
+
 @media screen and (max-width: 640px) {
   body > div.main {
     min-width: unset;
@@ -40,9 +41,14 @@ body > div.main {
     right: 0;
     transform: initial;
     box-sizing: border-box;
-
+    
     bottom: 0;
     border-radius: 1em 1em 0 0;
+  }
+  
+  .main ul li{
+    font-size: 1.2em;
+    padding: 0.7em !important;
   }
 }
 
@@ -73,3 +79,4 @@ body > div.main {
 .main ul li:hover { background-color: #aaa;}
 .main ul li:active { background-color: #666; }
 
+/* TODO: 한 줄에서 span으로 감싼 텍스트를 좌측 정렬/우측 정렬로 한 줄에 표시, 너비가 충분하지 않은 경우 줄바꿈 */
