@@ -1,0 +1,75 @@
+body {
+  /* background:repeating-linear-gradient(
+    to right,
+    #111     ,#111 10px,
+    #222 10px,#222 20px
+  ); */
+  background-color: #bbb;
+  font-family: '나눔바른고딕', 'NanumBarunGothic', '나눔고딕', 'NanumGothic', '맑은 고딕', 'Malgun Gothic',
+               'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/*** Main Container ***/
+
+body > div.main {
+  max-width: 600px;
+  min-width: 600px;
+  width: 80%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 1.5em 1em;
+  transition: 1s width;
+
+  /* background: white; */
+  border-radius: 1em;
+  background-color: #eeeeee;
+  box-shadow:  20px 20px 60px #9f9f9f, 
+             -20px -20px 60px #d7d7d7;
+}
+
+@media screen and (max-width: 640px) {
+  body > div.main {
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: initial;
+    box-sizing: border-box;
+
+    bottom: 0;
+    border-radius: 1em 1em 0 0;
+  }
+}
+
+.main > h1 { text-align: center; }
+.main > hr { border: 1px grey solid; }
+
+/*** Instance List ***/
+
+.main ul { padding: 0.2em; }
+.main ul a { 
+  /* color: white; */
+  text-decoration: none;
+}
+.main ul li {
+  list-style: none;
+  background-color: #888;
+  color: #ccc;
+  margin-bottom: 0.3em;
+  padding: 0.3em;
+  border-radius: 0.1em;
+  
+}
+
+.main ul li > .title {
+  color: white;
+}
+
+.main ul li:hover { background-color: #aaa;}
+.main ul li:active { background-color: #666; }
+
