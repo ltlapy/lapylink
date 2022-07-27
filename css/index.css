@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-jp-dynamic-subset.css");
 body {
   /* background:repeating-linear-gradient(
     to right,
@@ -5,80 +7,125 @@ body {
     #222 10px,#222 20px
   ); */
   background-color: #bbb;
-  font-family: '나눔바른고딕', 'NanumBarunGothic', '나눔고딕', 'NanumGothic', '맑은 고딕', 'Malgun Gothic',
-               'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Pretendard JP", "Pretendard", "나눔바른고딕", "NanumBarunGothic", "나눔고딕", "NanumGothic", "맑은 고딕", "Malgun Gothic", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow-y: hidden;
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /*** Main Container ***/
-
-.main {
-  /* max-width: 640px; */
-  min-width: 600px;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%,50%);
+.container {
+  min-width: 680px;
   padding: 1.5em 1em;
-  transition: width 1s, bottom 0.5s, height 1s, border-radius 0.7s;
-
+  margin-bottom: 1em;
+  transition: all 0.7s;
+  box-sizing: border-box;
   /* background: white; */
   border-radius: 1em;
   background-color: #eeeeee;
-  box-shadow:  20px 20px 60px #9f9f9f, 
-             -20px -20px 60px #d7d7d7;
+  box-shadow: 5px 5px 15px rgba(159, 159, 159, 0.4), -5px -5px 15px rgba(215, 215, 215, 0.4);
+}
+.container.lightweight {
+  min-width: 680px;
+  border-radius: 2em;
+  padding: 1.5em 1.5em;
 }
 
 .title {
   text-align: center;
+  flex-grow: 0;
+  transition: flex 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-@media screen and (max-width: 640px) {
-  body > div.main {
-    min-width: unset;
+.v-filler {
+  transition: flex 1s;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    align-items: flex-start;
+  }
+  .v-filler {
+    flex-grow: 1;
+  }
+  .container {
     width: 100%;
-    position: absolute;
-    left: 0;
-    /* transform: initial; */
-    transform: translate(0%,0%);
+    min-width: unset !important;
     box-sizing: border-box;
-    
+  }
+  .main {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
     bottom: 0;
+    box-sizing: border-box;
+    margin-bottom: 0em;
     border-radius: 1em 1em 0 0;
   }
-  
-  .content .links li{
+  .content .links li {
     font-size: 1.2em;
-    padding: 0.7em;
+    padding: 0.4em;
+  }
+  .content .links li :not(.description) {
+    flex-shrink: 0;
   }
 }
+.title > h1 {
+  text-align: center;
+}
 
-.title > h1 { text-align: center; }
-.main > hr { border: 1px grey solid; }
+.main > hr {
+  border: 1px grey solid;
+}
 
 /*** Instance List ***/
+.content .links {
+  padding: 0.2em;
+}
 
-.content .links { padding: 0.2em; }
-.links a { 
-  /* color: white; */
+.links a {
   text-decoration: none;
 }
+
 .links li {
   list-style: none;
   background-color: #888;
-  color: #ccc;
-  margin-bottom: 0.3em;
-  padding: 0.3em;
-  border-radius: 0.1em;
-  
-  transition: padding 0.5s;
-}
-
-.links li > .title {
   color: white;
+  display: flex;
+  margin-bottom: 0.3em;
+  border-radius: 0.1em;
+  padding: 0.4em;
+  align-items: center;
+  transition: padding 0.5s, background-color 0.2s, text-shadow 0.2s, box-shadow 0.2s;
+}
+.links li * {
+  margin: 0.3em;
+}
+.links li .description {
+  color: #ccc;
+  flex-grow: 1;
+  text-align: end;
+}
+.links li:hover {
+  background-color: #aaa;
+  box-shadow: 0 1px 4px rgba(51, 51, 51, 0.9333333333);
+  text-shadow: 0 0.7px 3px rgba(34, 34, 34, 0.9333333333);
+}
+.links li:active {
+  background-color: #666;
+}
+.links li:active .grayscale {
+  filter: unset !important;
 }
 
-.links li:hover { background-color: #aaa;}
-.links li:active { background-color: #666; }
-
-/* TODO: 한 줄에서 span으로 감싼 텍스트를 좌측 정렬/우측 정렬로 한 줄에 표시, 너비가 충분하지 않은 경우 줄바꿈 */
+/* Misc */
+.grayscale {
+  filter: grayscale(100%) brightness(200%) contrast(120%);
+  transition: filter 0.2s;
+  /* -webkit-filter: grayscale(100%) brightness(120%); */
+}/*# sourceMappingURL=index.css.map */
